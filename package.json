@@ -1,0 +1,25 @@
+{
+  "name": "njswebsvrsql2008",
+  "version": "1.0.0",
+  "description": "Web Server for MSSQL2008",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Sean Austin",
+  "license": "ISC",
+  "dependencies": {
+    "@fontsource/material-icons": "^5.0.5",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
+    "jsonwebtoken": "^9.0.1",
+    "material-icons": "^1.13.8",
+    "method-override": "^3.0.0",
+    "msnodesqlv8": "^4.1.0",
+    "mssql": "^9.1.1",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0"
+  }
+}

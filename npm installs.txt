@@ -1,0 +1,13 @@
+npm install express
+npm install path
+npm install dotenv
+npm install cookie-parser
+npm install method-override
+npm install serve-favicon
+npm install material-icons@latest
+npm install @fontsource/material-icons
+npm install express-handlebars
+npm install mssql
+npm install msnodesqlv8
+npm install jsonwebtoken
+npm install -g nodemon
