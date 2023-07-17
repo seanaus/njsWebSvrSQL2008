@@ -1,7 +1,7 @@
 "use-strict"
 require('dotenv').config();
 
-const { 
+const {
     PORT,
     HOST,
     URL,
@@ -11,7 +11,7 @@ const {
     MSSQL_DATABASE,
     MSSQL_ENCRYPT,
     MSSQL_PORT,
-    MSSQL_OPTIONS_TRUSTED_CONNECTION 
+    MSSQL_OPTIONS_TRUSTED_CONNECTION
 } = process.env;
 
 const SQL_SERVER_CONFIG = {
@@ -22,7 +22,7 @@ const SQL_SERVER_CONFIG = {
     port: MSSQL_PORT,
     options: {
         trustedconnection: MSSQL_OPTIONS_TRUSTED_CONNECTION
-    } 
+    }
 }
 
 module.exports = {

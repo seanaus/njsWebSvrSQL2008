@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Web Server for MSSQL2008",
   "main": "app.js",
+  "bin": "app.js",
   "scripts": {
     "start": "node app.js"
   },
@@ -20,6 +21,21 @@
     "msnodesqlv8": "^4.1.0",
     "mssql": "^9.1.1",
     "path": "^0.12.7",
+    "pkg": "^5.8.1",
     "serve-favicon": "^2.5.0"
+  },
+  "pkg": {
+    "scripts": [
+      "build/**/*.js"
+    ],
+    "assets": [
+      "node_modules/",
+      "views/"
+    ],
+    "targets": [
+      "node18-linux-x64",
+      "node18-macos-x64",
+      "node18-win-x86"
+    ]
   }
 }

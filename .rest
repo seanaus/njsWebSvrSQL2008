@@ -1,5 +1,5 @@
 ### RUN HOME
-GET http://localhost:8080/api/getData?query=SELECT * FROM nuwa_Account
+GET http://localhost:8080/getData?query=SELECT * FROM nuwa_Account
 Content-Type: application/json
 Authx: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
 
