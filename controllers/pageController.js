@@ -1,15 +1,25 @@
 "use strict"
-// const renderHome = (req, res) => {
-//     res.render('pages/home', { title: "njsWebSvrSQL2008" })
-// }
-const getData = (req, res) => {
-    res.json({ title: "njsWebSvrSQL2008", other: "AAAA" })
-}
-// const renderAbout = (req, res) => {
-//     res.render('pages/about', {title: "njsWebSvrSQL2008"})
-// }
+const sqlService = require('../services/msqlService');
+const configService = require('../services/configService');
+const errLogService = require('../services/errorLogService');
+const getData = async(req, res) => {
 
+    const config = configService?.mssqlServerConfig;
+
+    if(config && config!== null && config!=="") {
+        const query = req?.query?.query;
+        if(query && query!== null && query!=="") {
+            res.json(await sqlService.execSQL(config, query))
+        } else {
+            errLogService.log("Invalid: No Query Supplied To Run");
+            res.json({})
+        }
+    } else {
+        errLogService.log("Invalid: SQL Server Configuration");
+        res.json({})
+    }
+
+}
 module.exports = {
-    // renderHome,
     getData
 }
