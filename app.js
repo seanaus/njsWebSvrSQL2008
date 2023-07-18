@@ -8,6 +8,7 @@ const configService = require('./services/configService');
 // const handlebars = require('express-handlebars');
 const pageRoutes = require("./routes/pageRoutes.js");
 // const configService = require("./services/configService.js");
+const middleware = require("./middleware/middleware");
 
 // app.use(cookieParser());
 app.use(express.json());
@@ -27,6 +28,17 @@ app.use(express.static(path.join(__dirname, "public")));
 // Apply Handlebars View Engine Configuration
 // app.set('view engine', 'hbs');
 // app.engine('hbs', hbs.engine);
+// app.use(async (req, res, next) => {
+//   const connected = await middleware.
+//     next()
+// });
+
+app.use(async (req, res, next) => {
+  const connected = await middleware.connect(req);
+  console.log(`Connection: ${connected}`)
+  next();
+});
+
 app.use("/", pageRoutes.routes);
 
 app.listen(configService.port, () => {

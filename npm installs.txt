@@ -10,4 +10,5 @@ npm install express-handlebars
 npm install mssql
 npm install msnodesqlv8
 npm install jsonwebtoken
+npm install pkg
 npm install -g nodemon
