@@ -1,14 +1,21 @@
 const fs = require('fs');
 const path = require('path');
 const configService = require('./configService');
+
 const logError = (err) => {
 
-    const line = `ERROR,${cleanText(err.code)} ${cleanText(err.message)},${getDateTime()} \n`;
-    logToFile(configService.errLogDir, configService.errLogFileName, line);
+    const line = [`ERROR,${csvText(err.code)},${getDateTime('GB')} \n`,
+        `ERROR,${csvText(err.message)},${getDateTime('GB')} \n`]
+
+    if(Array.isArray(line)) {
+        line.forEach((item)=>{
+            logToFile(configService.errLogDir, configService.errLogFileName, item);
+        })
+    }
 
 }
 const log = (message) => {
-    const line = `INFO,${cleanText(message)},${getDateTime()} \n`;
+    const line = `INFO,${csvText(message)},${getDateTime('GB')} \n`;
     logToFile(configService.errLogDir, configService.errLogFileName, line);
 }
 
@@ -30,7 +37,7 @@ const logToFile = (dir, filename, data) => {
 const getDateTime = (timeZone = "UTC") => {
     return new Date().toLocaleString('en-GB', { timeZone: timeZone })
 }
-const cleanText = (text) => {
+const csvText = (text) => {
     text = text.replace(",", "");
     text = text.replace(/\s+/g, ' ').trim();
     return text
