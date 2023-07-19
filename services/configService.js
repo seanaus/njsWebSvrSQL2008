@@ -11,7 +11,9 @@ const {
     MSSQL_DATABASE,
     MSSQL_ENCRYPT,
     MSSQL_PORT,
-    MSSQL_OPTIONS_TRUSTED_CONNECTION
+    MSSQL_OPTIONS_TRUSTED_CONNECTION,
+    ERR_LOG_DIR,
+    ERR_LOG_FILENAME
 } = process.env;
 
 const SQL_SERVER_CONFIG = {
@@ -24,11 +26,12 @@ const SQL_SERVER_CONFIG = {
         trustedconnection: MSSQL_OPTIONS_TRUSTED_CONNECTION
     }
 }
-
 module.exports = {
     port: PORT,
     host: HOST,
     url: URL,
     production: PRODUCTION,
-    mssqlServerConfig: SQL_SERVER_CONFIG
+    mssqlServerConfig: SQL_SERVER_CONFIG,
+    errLogDir: ERR_LOG_DIR,
+    errLogFileName: ERR_LOG_FILENAME
 }

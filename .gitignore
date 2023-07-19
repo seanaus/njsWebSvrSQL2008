@@ -2,4 +2,7 @@
 node_modules
 # Files to Ignore
 *.env
+app-linux
+app-macos
+app-win
 
